@@ -1,16 +1,24 @@
 import sqlite3
 import json
+import uuid
+import datetime
 
 DB_NAME = "processcore_v2.db"
-EXPORT_FILE = "knowledge_graph.json"
+EXPORT_FILE = "dataset_commercial_v1.json"
 
-def export_graph_state():
-    print("📥 ProcessCore_NET: Generuji Graph State Export...")
+def clean_taxonomy(tech_list):
+    cleaned = []
+    if isinstance(tech_list, list):
+        for tech in tech_list:
+            t = str(tech).strip().title()
+            if len(t) > 2 and t.lower() not in ["none", "null", "unknown", "n/a", "error"]:
+                cleaned.append(t)
+    return list(set(cleaned))
+
+def export_commercial_dataset():
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
 
-    # 1. Extrakce validních uzlů (pouze ty, co Llama úspěšně zpracovala)
-    print("🔍 Hledám obohacené uzly...")
     nodes_raw = cursor.execute("""
         SELECT url, domain, llm_summary 
         FROM nodes 
@@ -18,54 +26,72 @@ def export_graph_state():
         AND llm_summary NOT LIKE '%error%'
     """).fetchall()
 
-    graph = {
-        "nodes": [],
-        "edges": []
+    dataset = {
+        "metadata": {
+            "dataset_id": str(uuid.uuid4()),
+            "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
+            "version": "1.0",
+            "schema": "ProcessCore_Commercial_V1",
+            "total_nodes": 0,
+            "total_edges": 0
+        },
+        "data": {
+            "entities": [],
+            "relations": []
+        }
     }
-
+    
     valid_urls = set()
+    url_to_uuid = {}
 
     for url, domain, summary in nodes_raw:
         try:
             data = json.loads(summary)
+            if data.get("status") in ["ignored", "system_ignored"]:
+                continue
+
+            techs = clean_taxonomy(data.get("domain_technologies", []))
+            if not techs:
+                continue
+
+            entity_id = str(uuid.uuid5(uuid.NAMESPACE_URL, url))
             org_name = data.get("organization_name", domain)
-            techs = data.get("domain_technologies", [])
             
-            # Přidáme uzel do grafu
-            graph["nodes"].append({
-                "id": url,
-                "label": org_name if org_name else domain,
+            entity = {
+                "entity_id": entity_id,
+                "label": org_name,
                 "domain": domain,
-                "technologies": techs
-            })
+                "source_url": url,
+                "extracted_technologies": techs,
+                "confidence_score": 0.95
+            }
+            
+            dataset["data"]["entities"].append(entity)
             valid_urls.add(url)
+            url_to_uuid[url] = entity_id
+
         except json.JSONDecodeError:
             continue
 
-    print(f"✅ Nalezeno {len(graph['nodes'])} sémanticky bohatých uzlů.")
-
-    # 2. Extrakce existujících vazeb (edges) mezi těmito uzly
-    print("🔗 Rekonstruuji vazby (Edges)...")
     edges_raw = cursor.execute("SELECT source, target FROM edges").fetchall()
     
-    edge_count = 0
     for source, target in edges_raw:
-        # Exportujeme jen ty hrany, kde známe alespoň zdrojový uzel
-        if source in valid_urls:
-            graph["edges"].append({
-                "source": source,
-                "target": target
-            })
-            edge_count += 1
+        if source in valid_urls and target in valid_urls:
+            relation = {
+                "relation_id": str(uuid.uuid4()),
+                "source_id": url_to_uuid[source],
+                "target_id": url_to_uuid[target],
+                "relation_type": "HYPERLINK"
+            }
+            dataset["data"]["relations"].append(relation)
 
-    print(f"✅ Přidáno {edge_count} relevantních vazeb.")
+    dataset["metadata"]["total_nodes"] = len(dataset["data"]["entities"])
+    dataset["metadata"]["total_edges"] = len(dataset["data"]["relations"])
 
-    # 3. Uložení Graph Payloadu
     with open(EXPORT_FILE, "w", encoding="utf-8") as f:
-        json.dump(graph, f, indent=2, ensure_ascii=False)
+        json.dump(dataset, f, indent=2, ensure_ascii=False)
 
     conn.close()
-    print(f"🚀 HOTOVO! Knowledge Graph exportován do souboru: {EXPORT_FILE}")
 
 if __name__ == "__main__":
-    export_graph_state()
+    export_commercial_dataset()

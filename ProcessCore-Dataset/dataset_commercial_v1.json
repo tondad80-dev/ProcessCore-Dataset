@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "dataset_id": "432fc6b6-2543-48f9-ae30-63e03cf0a360",
-    "generated_at": "2026-06-25T17:59:17.223539Z",
+    "dataset_id": "92dc8a2a-3d3a-4fa9-add9-a14ebabf1323",
+    "generated_at": "2026-06-25T19:13:55.861955Z",
     "version": "1.0",
     "schema": "ProcessCore_Commercial_V1",
-    "total_nodes": 7,
+    "total_nodes": 18,
     "total_edges": 0
   },
   "data": {
@@ -15,12 +15,23 @@
         "domain": "www.asu.edu",
         "source_url": "https://www.asu.edu/lib/tutorials/rise/Intro%20to%20Research%20Data%20Mgmt/",
         "extracted_technologies": [
-          "Scientific Methods",
-          "Institutional Platforms",
           "Superconducting Qubits",
           "Westlaw",
+          "Deep Domain-Specific Tools",
           "Alma",
-          "Deep Domain-Specific Tools"
+          "Institutional Platforms",
+          "Scientific Methods"
+        ],
+        "confidence_score": 0.95
+      },
+      {
+        "entity_id": "27c7d2fb-ab04-5506-af76-49700d938629",
+        "label": "University of Chicago",
+        "domain": "www.dualityaccelerator.com",
+        "source_url": "https://www.dualityaccelerator.com",
+        "extracted_technologies": [
+          "Quantum Computing",
+          "Superconductors"
         ],
         "confidence_score": 0.95
       },
@@ -36,15 +47,71 @@
         "confidence_score": 0.95
       },
       {
+        "entity_id": "94201507-f556-5fef-8de7-664446d842bc",
+        "label": "FermiLab",
+        "domain": "www.cuanschutz.edu",
+        "source_url": "https://www.cuanschutz.edu/education/student-resources",
+        "extracted_technologies": [
+          "Quantum Computing",
+          "Superconductors"
+        ],
+        "confidence_score": 0.95
+      },
+      {
+        "entity_id": "5b663ed3-1aba-5847-a423-9cc4d565c69c",
+        "label": "Fermilab",
+        "domain": "chat.openai.com",
+        "source_url": "https://chat.openai.com/?q=Access+this+URL%2C+provide+me+with+a+summary+of+the+article%2C+and+keep+the+domain+noted+for+future+referencing+https://www.verifiedmarketreports.com/product/quantum-software-market/",
+        "extracted_technologies": [
+          "Quantum Computing",
+          "Superconductors",
+          "Particle Physics"
+        ],
+        "confidence_score": 0.95
+      },
+      {
+        "entity_id": "bce55ba1-c620-5b99-b419-51ce6186f7d9",
+        "label": "Fermilab",
+        "domain": "intuition.toolforge.org",
+        "source_url": "https://intuition.toolforge.org",
+        "extracted_technologies": [
+          "Quantum Computing",
+          "Superconductors"
+        ],
+        "confidence_score": 0.95
+      },
+      {
+        "entity_id": "8bdb6b7c-d2f7-5b0a-afe3-7e3c9d554605",
+        "label": "Fermilab",
+        "domain": "www.international.gc.ca",
+        "source_url": "https://www.international.gc.ca/trade-commerce/controls-controles/ecl-lec/index.aspx?lang=eng",
+        "extracted_technologies": [
+          "Quantum Computing",
+          "Superconductors"
+        ],
+        "confidence_score": 0.95
+      },
+      {
+        "entity_id": "c7c414d3-53cd-5575-bce5-719562fd0215",
+        "label": "IBM",
+        "domain": "www.research.ibm.com",
+        "source_url": "https://www.research.ibm.com/ibm-q/network/",
+        "extracted_technologies": [
+          "Quantum Computing",
+          "Superconductors"
+        ],
+        "confidence_score": 0.95
+      },
+      {
         "entity_id": "1cc14a7f-22d5-5299-b816-c3521e0384e4",
         "label": "SQMS",
         "domain": "sqmscenter.fnal.gov",
         "source_url": "https://sqmscenter.fnal.gov/",
         "extracted_technologies": [
           "Img",
-          "Button",
           "File",
-          "Link"
+          "Link",
+          "Button"
         ],
         "confidence_score": 0.95
       },
@@ -54,14 +121,36 @@
         "domain": "davidkhubbard.github.io",
         "source_url": "https://davidkhubbard.github.io",
         "extracted_technologies": [
-          "Hassett Divisor",
-          "Calabi-Yau Varieties",
-          "Algebraic Geometry",
           "Derived Categories",
+          "Algebraic Geometry",
           "Fourier-Mukai Partners",
           "Arithmetic Geometry",
           "Trinity College, Oxford",
+          "Hassett Divisor",
+          "Calabi-Yau Varieties",
           "Finite Fields"
+        ],
+        "confidence_score": 0.95
+      },
+      {
+        "entity_id": "6f6fca00-c3de-565b-8a21-6d4985429957",
+        "label": "University of Colorado",
+        "domain": "www.cu.edu",
+        "source_url": "https://www.cu.edu/",
+        "extracted_technologies": [
+          "Quantum Computing",
+          "Superconductors"
+        ],
+        "confidence_score": 0.95
+      },
+      {
+        "entity_id": "1c68cfb5-db5f-529a-96c0-834261cb3d16",
+        "label": "DNRF",
+        "domain": "dg.dk",
+        "source_url": "https://dg.dk/en/",
+        "extracted_technologies": [
+          "Quantum Computing",
+          "Superconductors"
         ],
         "confidence_score": 0.95
       },
@@ -73,6 +162,17 @@
         "extracted_technologies": [
           "Hilton Asia Pacific",
           "Hilton Spark By Hilton"
+        ],
+        "confidence_score": 0.95
+      },
+      {
+        "entity_id": "0797b0b0-8323-587c-a7d1-460da261ce1a",
+        "label": "EIT Deep Tech Talent Initiative",
+        "domain": "www.eitdeeptechtalent.eu",
+        "source_url": "https://www.eitdeeptechtalent.eu/",
+        "extracted_technologies": [
+          "Quantum Computing",
+          "Superconductors"
         ],
         "confidence_score": 0.95
       },
@@ -93,12 +193,34 @@
         "domain": "theeuropas2021.thepathfounder.com",
         "source_url": "https://theeuropas2021.thepathfounder.com/",
         "extracted_technologies": [
-          "Scientific Methods",
-          "Institutional Platforms",
           "Superconducting Qubits",
           "Westlaw",
+          "Deep Domain-Specific Tools",
           "Alma",
-          "Deep Domain-Specific Tools"
+          "Institutional Platforms",
+          "Scientific Methods"
+        ],
+        "confidence_score": 0.95
+      },
+      {
+        "entity_id": "e77bc4f8-0cc9-523f-a5dd-45b666b838d1",
+        "label": "Fermilab",
+        "domain": "portuguese.stackexchange.com",
+        "source_url": "https://portuguese.stackexchange.com/users/1700/",
+        "extracted_technologies": [
+          "Quantum Computing",
+          "Superconductors"
+        ],
+        "confidence_score": 0.95
+      },
+      {
+        "entity_id": "92e6d1f4-3e9a-58c2-a4aa-6a404730fd8b",
+        "label": "The University of New Mexico",
+        "domain": "publicrecords.unm.edu",
+        "source_url": "http://publicrecords.unm.edu/",
+        "extracted_technologies": [
+          "Quantum Computing",
+          "Superconductors"
         ],
         "confidence_score": 0.95
       }
