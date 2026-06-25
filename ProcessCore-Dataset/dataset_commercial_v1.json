@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "dataset_id": "432fc6b6-2543-48f9-ae30-63e03cf0a360",
+    "generated_at": "2026-06-25T17:59:17.223539Z",
+    "version": "1.0",
+    "schema": "ProcessCore_Commercial_V1",
+    "total_nodes": 7,
+    "total_edges": 0
+  },
+  "data": {
+    "entities": [
+      {
+        "entity_id": "c0deeccd-be40-5e4a-82d7-9854d2c5eff0",
+        "label": "Arizona State University",
+        "domain": "www.asu.edu",
+        "source_url": "https://www.asu.edu/lib/tutorials/rise/Intro%20to%20Research%20Data%20Mgmt/",
+        "extracted_technologies": [
+          "Scientific Methods",
+          "Institutional Platforms",
+          "Superconducting Qubits",
+          "Westlaw",
+          "Alma",
+          "Deep Domain-Specific Tools"
+        ],
+        "confidence_score": 0.95
+      },
+      {
+        "entity_id": "843797fc-d02c-55a8-9b39-ce46dbc13684",
+        "label": "Caltech",
+        "domain": "innovation.caltech.edu",
+        "source_url": "http://innovation.caltech.edu/",
+        "extracted_technologies": [
+          "Quantum Computing",
+          "Superconductors"
+        ],
+        "confidence_score": 0.95
+      },
+      {
+        "entity_id": "1cc14a7f-22d5-5299-b816-c3521e0384e4",
+        "label": "SQMS",
+        "domain": "sqmscenter.fnal.gov",
+        "source_url": "https://sqmscenter.fnal.gov/",
+        "extracted_technologies": [
+          "Img",
+          "Button",
+          "File",
+          "Link"
+        ],
+        "confidence_score": 0.95
+      },
+      {
+        "entity_id": "b727737e-cc21-5e6b-91ef-8fae49c0185e",
+        "label": "",
+        "domain": "davidkhubbard.github.io",
+        "source_url": "https://davidkhubbard.github.io",
+        "extracted_technologies": [
+          "Hassett Divisor",
+          "Calabi-Yau Varieties",
+          "Algebraic Geometry",
+          "Derived Categories",
+          "Fourier-Mukai Partners",
+          "Arithmetic Geometry",
+          "Trinity College, Oxford",
+          "Finite Fields"
+        ],
+        "confidence_score": 0.95
+      },
+      {
+        "entity_id": "fa671d66-db07-5d82-bcc8-03c33a07ab38",
+        "label": "Hilton",
+        "domain": "ETTravelWorld.com",
+        "source_url": "https://ETTravelWorld.com",
+        "extracted_technologies": [
+          "Hilton Asia Pacific",
+          "Hilton Spark By Hilton"
+        ],
+        "confidence_score": 0.95
+      },
+      {
+        "entity_id": "cd91d17c-1517-542c-ba2b-5cd63c943f1f",
+        "label": "FermiLab",
+        "domain": "es.gizmodo.com",
+        "source_url": "https://es.gizmodo.com",
+        "extracted_technologies": [
+          "Quantum Computing",
+          "Superconductors"
+        ],
+        "confidence_score": 0.95
+      },
+      {
+        "entity_id": "f7b471bc-dd05-5909-ac05-8eab6034d220",
+        "label": "The Europas 2021",
+        "domain": "theeuropas2021.thepathfounder.com",
+        "source_url": "https://theeuropas2021.thepathfounder.com/",
+        "extracted_technologies": [
+          "Scientific Methods",
+          "Institutional Platforms",
+          "Superconducting Qubits",
+          "Westlaw",
+          "Alma",
+          "Deep Domain-Specific Tools"
+        ],
+        "confidence_score": 0.95
+      }
+    ],
+    "relations": []
+  }
+}
